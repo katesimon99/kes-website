@@ -1,0 +1,30 @@
+/* Import a nice font from Google Fonts — free and easy */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* The * selector applies to every element on the page */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Makes sizing more predictable */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9f9f9;
+  color: #1a1a1a;
+  max-width: 680px;        /* Keeps content from stretching too wide */
+  margin: 80px auto;       /* Centers the content horizontally */
+  padding: 0 24px;         /* Breathing room on small screens */
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;        /* Makes text easier to read */
+}
