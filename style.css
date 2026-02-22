@@ -1,30 +1,234 @@
-/* Import a nice font from Google Fonts — free and easy */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+/* ============================================
+   IMPORTS & RESET
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500&display=swap');
 
-/* The * selector applies to every element on the page */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Makes sizing more predictable */
+  box-sizing: border-box;
 }
 
+/* ============================================
+   BASE STYLES
+   All pages share these
+   ============================================ */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f9f9f9;
-  color: #1a1a1a;
-  max-width: 680px;        /* Keeps content from stretching too wide */
-  margin: 80px auto;       /* Centers the content horizontally */
-  padding: 0 24px;         /* Breathing room on small screens */
+  background-color: #5c5c3d; /* Khaki moss olive green */
+  color: #f0f0f0;            /* Off-white text */
+  min-height: 100vh;
 }
 
-h1 {
-  font-size: 2.5rem;
-  font-weight: 600;
+/* ============================================
+   NAVIGATION
+   Fixed to top so it stays visible on scroll
+   ============================================ */
+nav {
+  position: fixed;           /* Stays at top even when scrolling */
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between; /* Logo left, links right */
+  align-items: center;
+  padding: 24px 40px;
+  z-index: 100;              /* Sits above everything else */
+  /* Subtle fade so content can scroll under it */
+  background: linear-gradient(to bottom, #5c5c3d 60%, transparent);
+}
+
+/* Your name/logo in the top left */
+.nav-logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.4rem;
+  color: #f0f0f0;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.nav-logo:hover {
+  color: #c8a97e; /* Warm gold on hover */
+}
+
+/* The right side nav links */
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: #999;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #f0f0f0; /* Active page link is bright white */
+}
+
+/* ============================================
+   HOMEPAGE HERO
+   ============================================ */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;         /* Full screen height */
+  text-align: center;
+  padding: 40px 24px;
+}
+
+/* The big script name — this is the centrepiece */
+.big-name {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(3rem, 12vw, 9rem); /* Scales with screen size */
+  line-height: 1.1;
+  color: #f5f2ea;            /* Slightly warm off-white — softer than pure white */
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  /* Subtle text shadow adds depth */
+  text-shadow: 0 0 80px rgba(200, 169, 126, 0.3);
+}
+
+/* "ahh we meet at last." */
+.tagline {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #888;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  margin-bottom: 48px;
+}
+
+/* ============================================
+   SOCIAL LINKS (homepage)
+   ============================================ */
+.social-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;           /* Wraps on small screens */
+  justify-content: center;
+  align-items: center;
+}
+
+.social-links a {
+  color: #888;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.social-links a:hover {
+  color: #c8a97e;            /* Warm gold on hover */
+  border-bottom-color: #c8a97e;
+}
+
+/* TikTok "coming soon" — greyed out, not a link */
+.coming-soon {
+  color: #444;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  cursor: default;
+}
+
+.coming-soon em {
+  font-style: italic;
+  color: #333;
+}
+
+/* ============================================
+   INNER PAGES (work, reviews)
+   ============================================ */
+.page-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 140px 40px 80px; /* Top padding accounts for fixed nav */
+}
+
+/* Page title like "the work" or "what they're saying" */
+.page-title {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: #f0f0f0;
+  margin-bottom: 64px;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================
+   WORK PAGE
+   ============================================ */
+.job {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #222; /* Subtle divider between jobs */
+}
+
+.job:last-child {
+  border-bottom: none;
+}
+
+.job-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: baseline;
   margin-bottom: 12px;
 }
 
-p {
-  font-size: 1.1rem;
+.job-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f0f0f0;
+}
+
+.job-company {
+  font-size: 0.9rem;
+  color: #c8a97e; /* Gold for company names */
+}
+
+.job-years {
+  font-size: 0.8rem;
   color: #555;
-  line-height: 1.6;        /* Makes text easier to read */
+  margin-left: auto;         /* Pushes years to the right */
+}
+
+.job-desc {
+  font-size: 0.95rem;
+  color: #888;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ============================================
+   REVIEWS PAGE
+   ============================================ */
+.review {
+  margin-bottom: 48px;
+}
+
+.quote {
+  font-size: 1.15rem;
+  color: #ddd;
+  line-height: 1.7;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.attribution {
+  font-size: 0.8rem;
+  color: #555;
+  letter-spacing: 0.08em;
 }
