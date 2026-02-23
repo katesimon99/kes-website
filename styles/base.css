@@ -153,6 +153,8 @@ nav {
   min-height: 100vh;
   text-align: center;
   padding: var(--space-8);
+  padding-top: 30vh;        /* Pushes name down from the top */
+  padding-bottom: 100vh;    /* Lots of room to scroll into */
 }
 
 .hero-name {
@@ -296,4 +298,50 @@ mkdir -p styles scripts assets/patterns assets/horses
 ```
 Then manually create/replace all the files above with the code provided.
 ```
-open index.html
+open index.html/* ============================================
+   HERO NAME — stacked layout
+   Each word on its own line, slightly overlapping
+   ============================================ */
+.hero-name {
+  display: flex;
+  flex-direction: column;  /* Stack the spans vertically */
+  align-items: center;
+  /* Transition smooths the JS opacity changes */
+  transition: opacity 0.05s linear;
+  /* will-change hints to the browser to optimize this element for animation */
+  will-change: opacity;
+}
+
+.name-line {
+  display: block;
+  /* Negative line height pulls lines closer — creates the overlap feel */
+  line-height: 0.85;
+}
+
+/* ============================================
+   HORSESHOE DIVIDER SVG
+   Inline SVG used as a decorative section divider
+   ============================================ */
+.horseshoe-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin: var(--space-12) 0;
+}
+
+/* The lines either side of the horseshoe */
+.horseshoe-divider::before,
+.horseshoe-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-cream-dark);
+}
+
+/* The SVG horseshoe itself */
+.horseshoe-divider svg {
+  flex-shrink: 0;
+  color: var(--color-ink-faint);
+  /* Inherits color for the stroke */
+}
