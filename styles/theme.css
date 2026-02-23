@@ -1,0 +1,62 @@
+/* ============================================
+   DESIGN TOKENS
+   Define all visual values here as variables.
+   Reference these everywhere else — never 
+   hardcode a color, font, or spacing value.
+   ============================================ */
+
+:root {
+
+  /* --- COLORS --- */
+  --color-cream:      #f5f0e8;   /* Page background — warm, not stark white */
+  --color-cream-dark: #ede6d6;   /* Slightly deeper cream for subtle contrast */
+  --color-sage:       #7c8c6e;   /* Primary green — muted, earthy */
+  --color-sage-light: #a8b89a;   /* Lighter sage for accents */
+  --color-olive:      #5c5c3d;   /* Deep olive — used sparingly for weight */
+  --color-blue:       #8fa3b1;   /* Dusty blue — accent */
+  --color-blush:      #d4a89a;   /* Blush pink — accent */
+  --color-ink:        #2e2e2a;   /* Near-black for text — warm, not harsh */
+  --color-ink-light:  #6b6860;   /* Secondary text */
+  --color-ink-faint:  #a8a49e;   /* Placeholder, disabled, subtle labels */
+
+  /* --- TYPOGRAPHY --- */
+  /* Pacifico: big sweeping script for homepage name only */
+  --font-script:  'Pacifico', cursive;
+  /* Playfair Display: editorial serif for headings and quotes */
+  --font-serif:   'Playfair Display', serif;
+  /* DM Sans: warm humanist sans for body, nav, UI */
+  --font-sans:    'DM Sans', sans-serif;
+
+  /* Font sizes — uses clamp() to scale smoothly across screen sizes */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.375rem;
+  --text-hero: clamp(3.5rem, 13vw, 10rem); /* Homepage name */
+
+  /* --- SPACING --- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* --- BORDERS & RADIUS --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* --- SHADOWS --- */
+  /* Soft, warm shadows — nothing harsh or techy */
+  --shadow-sm: 0 1px 3px rgba(46, 46, 42, 0.08);
+  --shadow-md: 0 4px 16px rgba(46, 46, 42, 0.10);
+
+  /* --- TRANSITIONS --- */
+  /* Used for hover states — consistent feel across the site */
+  --transition: 0.25s ease;
+}

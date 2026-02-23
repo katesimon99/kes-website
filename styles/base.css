@@ -1,0 +1,299 @@
+/* ============================================
+   BASE STYLES
+   Reset, global defaults, and font loading.
+   This file should NOT contain component styles —
+   just the foundation every page builds on.
+   ============================================ */
+
+/* Load all three fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* --- RESET --- */
+/* Removes browser default spacing and makes sizing consistent */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- BASE --- */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  line-height: 1.6;
+  min-height: 100vh;
+  /* Subtle warm paper texture using CSS — no image needed */
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* --- TYPOGRAPHY DEFAULTS --- */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+p {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  color: var(--color-ink-light);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+/* --- NAVIGATION --- */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-6) var(--space-8);
+  z-index: 100;
+  /* Fades into the cream background below it */
+  background: linear-gradient(to bottom, var(--color-cream) 60%, transparent);
+}
+
+.nav-logo {
+  font-family: var(--font-script);
+  font-size: 1.5rem;
+  color: var(--color-ink);
+  letter-spacing: 0.01em;
+}
+
+.nav-logo:hover {
+  color: var(--color-sage);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.nav-links a {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-ink-light);
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-sage);
+}
+
+/* --- INNER PAGE LAYOUT --- */
+/* Used on work, reviews, elsewhere pages */
+.page-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 140px var(--space-8) var(--space-24);
+}
+
+.page-title {
+  font-family: var(--font-script);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  color: var(--color-ink);
+  margin-bottom: var(--space-16);
+  letter-spacing: -0.01em;
+}
+
+/* --- HORSESHOE DIVIDER --- */
+/* A simple SVG horseshoe used as a section divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin: var(--space-12) 0;
+  color: var(--color-ink-faint);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-cream-dark);
+}
+
+/* --- REDUCED MOTION --- */
+/* Respects users who have asked for less animation in their OS settings */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}/* --- HERO (homepage only) --- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: var(--space-8);
+}
+
+.hero-name {
+  font-family: var(--font-script);
+  font-size: var(--text-hero);
+  font-weight: 400;         /* Pacifico only has one weight */
+  color: var(--color-ink);
+  letter-spacing: -0.02em;  /* Pulls letters slightly closer — more sweeping */
+  line-height: 0.95;        /* Tight line height makes lines overlap slightly */
+  margin-bottom: var(--space-6);
+  /* Soft warm glow behind the name */
+  text-shadow: 0 0 120px rgba(124, 140, 110, 0.2);
+}
+
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--color-ink-faint);
+  letter-spacing: 0.05em;
+}/* --- WORK PAGE --- */
+.job {
+  margin-bottom: var(--space-12);
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid var(--color-cream-dark);
+}
+
+.job:last-child {
+  border-bottom: none;
+}
+
+.job-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  align-items: baseline;
+  margin-bottom: var(--space-3);
+}
+
+.job-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-ink);
+}
+
+.job-company {
+  font-size: var(--text-sm);
+  color: var(--color-sage);
+  font-weight: 500;
+}
+
+.job-years {
+  font-size: var(--text-xs);
+  color: var(--color-ink-faint);
+  margin-left: auto;
+  letter-spacing: 0.05em;
+}
+
+.job-desc {
+  font-size: var(--text-base);
+  line-height: 1.75;
+}/* --- REVIEWS PAGE --- */
+.review {
+  margin-bottom: var(--space-12);
+}
+
+.quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-xl);
+  color: var(--color-ink);
+  line-height: 1.6;
+  margin-bottom: var(--space-3);
+}
+
+.attribution {
+  font-size: var(--text-sm);
+  color: var(--color-ink-faint);
+  letter-spacing: 0.06em;
+}/* --- ELSEWHERE PAGE --- */
+.link-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.link-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-cream-dark);
+  color: var(--color-ink);
+  transition: color var(--transition), padding-left var(--transition);
+}
+
+.link-row:hover {
+  color: var(--color-sage);
+  padding-left: var(--space-2); /* Subtle nudge right on hover */
+}
+
+.link-label {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  letter-spacing: 0.01em;
+}
+
+.link-arrow {
+  font-size: var(--text-lg);
+  color: var(--color-ink-faint);
+  transition: color var(--transition);
+}
+
+.link-row:hover .link-arrow {
+  color: var(--color-sage);
+}
+
+/* Disabled state for TikTok */
+.link-disabled {
+  cursor: default;
+  color: var(--color-ink-faint);
+}
+
+.link-disabled:hover {
+  color: var(--color-ink-faint);
+  padding-left: 0;
+}
+
+.link-soon {
+  font-size: var(--text-xs);
+  color: var(--color-ink-faint);
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+```
+
+---
+
+**Terminal checklist — run these in order:**
+```
+mkdir -p styles scripts assets/patterns assets/horses
+```
+Then manually create/replace all the files above with the code provided.
+```
+open index.html
