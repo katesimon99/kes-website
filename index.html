@@ -4,30 +4,379 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kate Elizabeth Simon</title>
-    <!-- Load tokens first, then base styles -->
     <link rel="stylesheet" href="styles/theme.css" />
     <link rel="stylesheet" href="styles/base.css" />
   </head>
   <body>
 
-    <nav>
-      <a href="index.html" class="nav-logo">kate</a>
+    <!-- ============================================
+         NAVIGATION
+         Anchor links scroll to sections on this page
+         ============================================ -->
+    <nav id="top">
+      <a href="#top" class="nav-logo">KES</a>
       <div class="nav-links">
-        <a href="work.html">work</a>
-        <a href="reviews.html">reviews</a>
-        <a href="elsewhere.html">elsewhere</a>
+        <a href="#about">about</a>
+        <a href="#career">career</a>
+        <a href="#skills">skills</a>
+        <a href="#reviews">reviews</a>
+        <a href="#contact">contact</a>
       </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-      <!-- The big name — script font, huge, centered -->
-      <h1 class="hero-name">
-  <span class="name-line">kate</span>
-  <span class="name-line">elizabeth</span>
-  <span class="name-line">simon</span>
-</h1>
-      <p class="hero-tagline">ahh we meet at last.</p>
+    <!-- ============================================
+         HERO SECTION
+         Full screen, name + tagline + scroll arrow
+         ============================================ -->
+    <section class="hero" id="hero">
+      <div class="hero-inner">
+        <h1 class="hero-name">
+          <span class="name-line">kate</span>
+          <span class="name-line">elizabeth</span>
+          <span class="name-line">simon</span>
+        </h1>
+        <p class="hero-tagline">
+          Big eater. Hospitality obsessor. Startup fanatic. Chronic Pinterest scroller.
+        </p>
+      </div>
+      <!-- Scroll arrow — nudges visitors to keep going -->
+      <a href="#about" class="scroll-arrow" aria-label="Scroll down">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="4" x2="12" y2="20"/>
+          <polyline points="6 14 12 20 18 14"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
+    <section class="content-section" id="about">
+      <div class="section-inner">
+        <h2 class="section-title">ahh, we meet at last.</h2>
+        <div class="about-text">
+          <p>Hi, I'm Kate — just a girl who loves being a part of teams building cool stuff.</p>
+          <p>I've spent the past 3+ years at the intersection of food and tech, helping restaurants get tools that actually work for them and helping diners eat better. Having worked in restaurants since I was 16, this was the perfect way to blend the hospitality industry with my tech experiences. And the shoe fits!</p>
+          <p>When I'm not hunting for a new favorite bite, I'm probably deep in a founder podcast, pinning my fifth Pinterest board of the week, scrolling on The Real Real, or convincing my friends to try the Ninja Park in Greenpoint (no takers yet. but we'll get there.). I was born in Boston, went to USC, lived in Sydney for a bit, and eventually landed in NYC.</p>
+          <p>I'm always looking for new friends, mentors, mentees, and generally excellent people to add to my life. If that sounds like you, <a href="mailto:kate.eliz.simon@gmail.com" class="inline-link">hit my line.</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CAREER SECTION
+         ============================================ -->
+    <section class="content-section section-alt" id="career">
+      <div class="section-inner">
+        <h2 class="section-title">career path</h2>
+        <p class="section-subtitle">A brief history of showing up and figuring it out.</p>
+
+        <div class="career-grid">
+
+          <div class="career-item">
+            <div class="career-logo">
+              <img src="https://logo.clearbit.com/blackbird.xyz" alt="Blackbird" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+              <span class="logo-fallback">Blackbird</span>
+            </div>
+            <div class="career-details">
+              <a href="https://www.blackbird.xyz" target="_blank" class="career-company">Blackbird Labs</a>
+              <span class="career-title">Account Manager</span>
+              <span class="career-years">Sep 2025 — Present</span>
+              <p class="career-desc">Making sure 150 restaurant partners in Brooklyn feel like they're the only ones. They're not. But they don't have to know that.</p>
+            </div>
+          </div>
+
+          <div class="horseshoe-divider">
+            <svg width="28" height="22" viewBox="0 0 28 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 2 C4 2 2 4 2 9 C2 16 6 20 10 20 L10 17 C7 17 5 14 5 9 C5 5.5 6.5 4 8 4 C9.5 4 11 5.5 11 9 L11 14 L17 14 L17 9 C17 5.5 18.5 4 20 4 C21.5 4 23 5.5 23 9 C23 14 21 17 18 17 L18 20 C22 20 26 16 26 9 C26 4 24 2 24 2" />
+              <circle cx="8.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="7.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="19.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="20.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+
+          <div class="career-item">
+            <div class="career-logo">
+              <img src="https://logo.clearbit.com/grubhub.com" alt="Claim" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+              <span class="logo-fallback">Claim</span>
+            </div>
+            <div class="career-details">
+              <a href="https://grubhub.com" target="_blank" class="career-company">Claim — Acquired by Grubhub/Wonder</a>
+              <span class="career-title">Account Executive</span>
+              <span class="career-years">Jun 2025 — Oct 2025</span>
+              <p class="career-desc">An app that pays you to shop. My friends said it wasn't a trick. I asked the CEO to prove it. (He did. We got acquired.)</p>
+            </div>
+          </div>
+
+          <div class="horseshoe-divider">
+            <svg width="28" height="22" viewBox="0 0 28 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 2 C4 2 2 4 2 9 C2 16 6 20 10 20 L10 17 C7 17 5 14 5 9 C5 5.5 6.5 4 8 4 C9.5 4 11 5.5 11 9 L11 14 L17 14 L17 9 C17 5.5 18.5 4 20 4 C21.5 4 23 5.5 23 9 C23 14 21 17 18 17 L18 20 C22 20 26 16 26 9 C26 4 24 2 24 2" />
+              <circle cx="8.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="7.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="19.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="20.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+
+          <div class="career-item">
+            <div class="career-logo">
+              <img src="https://logo.clearbit.com/qloo.com" alt="Qloo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+              <span class="logo-fallback">Qloo</span>
+            </div>
+            <div class="career-details">
+              <a href="https://www.qloo.com" target="_blank" class="career-company">Qloo</a>
+              <span class="career-title">Growth Lead → Growth Coordinator</span>
+              <span class="career-years">Sep 2023 — Jun 2025</span>
+              <p class="career-desc">Built the partnerships and BD function from the ground up. Lived in the gap between sales, marketing, and engineering. Thrived there, actually.</p>
+            </div>
+          </div>
+
+          <div class="horseshoe-divider">
+            <svg width="28" height="22" viewBox="0 0 28 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 2 C4 2 2 4 2 9 C2 16 6 20 10 20 L10 17 C7 17 5 14 5 9 C5 5.5 6.5 4 8 4 C9.5 4 11 5.5 11 9 L11 14 L17 14 L17 9 C17 5.5 18.5 4 20 4 C21.5 4 23 5.5 23 9 C23 14 21 17 18 17 L18 20 C22 20 26 16 26 9 C26 4 24 2 24 2" />
+              <circle cx="8.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="7.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="19.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="20.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+
+          <div class="career-item">
+            <div class="career-logo">
+              <img src="https://logo.clearbit.com/merivale.com.au" alt="Totti's" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+              <span class="logo-fallback">Totti's</span>
+            </div>
+            <div class="career-details">
+              <a href="https://merivale.com.au" target="_blank" class="career-company">Totti's, Merivale</a>
+              <span class="career-title">Floor Staff</span>
+              <span class="career-years">Sep 2022 — Jun 2023</span>
+              <p class="career-desc">On the floor at Sydney's Favorite Restaurant of 2023 per TimeOut. The big leagues, baby!</p>
+            </div>
+          </div>
+
+          <div class="horseshoe-divider">
+            <svg width="28" height="22" viewBox="0 0 28 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 2 C4 2 2 4 2 9 C2 16 6 20 10 20 L10 17 C7 17 5 14 5 9 C5 5.5 6.5 4 8 4 C9.5 4 11 5.5 11 9 L11 14 L17 14 L17 9 C17 5.5 18.5 4 20 4 C21.5 4 23 5.5 23 9 C23 14 21 17 18 17 L18 20 C22 20 26 16 26 9 C26 4 24 2 24 2" />
+              <circle cx="8.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="7.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="19.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="20.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+
+          <div class="career-item">
+            <div class="career-logo">
+              <img src="https://logo.clearbit.com/usc.edu" alt="USC" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+              <span class="logo-fallback">USC</span>
+            </div>
+            <div class="career-details">
+              <a href="https://www.usc.edu" target="_blank" class="career-company">USC Annenberg Admissions</a>
+              <span class="career-title">Ambassador & Admissions Intern</span>
+              <span class="career-years">Sep 2019 — May 2022</span>
+              <p class="career-desc">Ran events for 300+ prospective students. Responsible for at least a handful of people's life decisions. Sorry or you're welcome...</p>
+            </div>
+          </div>
+
+          <div class="horseshoe-divider">
+            <svg width="28" height="22" viewBox="0 0 28 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 2 C4 2 2 4 2 9 C2 16 6 20 10 20 L10 17 C7 17 5 14 5 9 C5 5.5 6.5 4 8 4 C9.5 4 11 5.5 11 9 L11 14 L17 14 L17 9 C17 5.5 18.5 4 20 4 C21.5 4 23 5.5 23 9 C23 14 21 17 18 17 L18 20 C22 20 26 16 26 9 C26 4 24 2 24 2" />
+              <circle cx="8.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="7.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="19.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="20.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+
+          <div class="career-item">
+            <div class="career-logo">
+              <img src="https://logo.clearbit.com/jsastrategies.com" alt="JSA" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+              <span class="logo-fallback">JSA</span>
+            </div>
+            <div class="career-details">
+              <a href="https://jsastrategies.com" target="_blank" class="career-company">JSA Strategies</a>
+              <span class="career-title">PR Intern</span>
+              <span class="career-years">Jan 2021 — Aug 2021</span>
+              <p class="career-desc">Pitched Forbes, Business Insider, and WIRED on behalf of gaming and esports clients. Yes, I know what a frag is. Sorta.</p>
+            </div>
+          </div>
+
+          <div class="horseshoe-divider">
+            <svg width="28" height="22" viewBox="0 0 28 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 2 C4 2 2 4 2 9 C2 16 6 20 10 20 L10 17 C7 17 5 14 5 9 C5 5.5 6.5 4 8 4 C9.5 4 11 5.5 11 9 L11 14 L17 14 L17 9 C17 5.5 18.5 4 20 4 C21.5 4 23 5.5 23 9 C23 14 21 17 18 17 L18 20 C22 20 26 16 26 9 C26 4 24 2 24 2" />
+              <circle cx="8.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="7.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="19.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="20.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+
+          <div class="career-item">
+            <div class="career-logo">
+              <img src="https://logo.clearbit.com/renttherunway.com" alt="Rent the Runway" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+              <span class="logo-fallback">RTR</span>
+            </div>
+            <div class="career-details">
+              <a href="https://www.renttherunway.com" target="_blank" class="career-company">Rent The Runway</a>
+              <span class="career-title">College Representative</span>
+              <span class="career-years">Jan 2019 — Jan 2021</span>
+              <p class="career-desc">Three years running experiential events on campus. Converted 65% of attendees into subscribers. Might be my most impressive sales stat to date.</p>
+            </div>
+          </div>
+
+          <div class="horseshoe-divider">
+            <svg width="28" height="22" viewBox="0 0 28 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 2 C4 2 2 4 2 9 C2 16 6 20 10 20 L10 17 C7 17 5 14 5 9 C5 5.5 6.5 4 8 4 C9.5 4 11 5.5 11 9 L11 14 L17 14 L17 9 C17 5.5 18.5 4 20 4 C21.5 4 23 5.5 23 9 C23 14 21 17 18 17 L18 20 C22 20 26 16 26 9 C26 4 24 2 24 2" />
+              <circle cx="8.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="7.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="19.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="20.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+
+          <div class="career-item">
+            <div class="career-logo">
+              <img src="https://logo.clearbit.com/corepoweryoga.com" alt="CorePower" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+              <span class="logo-fallback">CorePower</span>
+            </div>
+            <div class="career-details">
+              <a href="https://www.corepoweryoga.com" target="_blank" class="career-company">CorePower Yoga</a>
+              <span class="career-title">Certified Sculpt Instructor</span>
+              <span class="career-years">Mar 2019 — Mar 2020</span>
+              <p class="career-desc">Certified to yell at people while they hold a plank. Surprisingly useful skill set.</p>
+            </div>
+          </div>
+
+          <div class="horseshoe-divider">
+            <svg width="28" height="22" viewBox="0 0 28 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 2 C4 2 2 4 2 9 C2 16 6 20 10 20 L10 17 C7 17 5 14 5 9 C5 5.5 6.5 4 8 4 C9.5 4 11 5.5 11 9 L11 14 L17 14 L17 9 C17 5.5 18.5 4 20 4 C21.5 4 23 5.5 23 9 C23 14 21 17 18 17 L18 20 C22 20 26 16 26 9 C26 4 24 2 24 2" />
+              <circle cx="8.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="7.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="19.5" cy="7" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="20.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+
+          <div class="career-item">
+            <div class="career-logo">
+              <img src="https://logo.clearbit.com/klrpr.com" alt="KLRPR" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+              <span class="logo-fallback">KLRPR</span>
+            </div>
+            <div class="career-details">
+              <a href="#" class="career-company">Kerri Lee Ross PR</a>
+              <span class="career-title">PR Intern</span>
+              <span class="career-years">Mar 2020 — Aug 2020</span>
+              <p class="career-desc">Landed placements in Vogue, Allure, and Byrdie. Grew the agency's social following 215%. Did not get a Vogue subscription out of it.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SKILLS SECTION
+         ============================================ -->
+    <section class="content-section" id="skills">
+      <div class="section-inner">
+        <h2 class="section-title">in the toolkit</h2>
+        <p class="section-subtitle">Things I'm actually good at, per me and the people who've worked with me.</p>
+
+        <div class="skills-list">
+
+          <div class="skill-item">
+            <span class="skill-number">01</span>
+            <div class="skill-content">
+              <h3 class="skill-headline">So Jerry, how's your day going?</h3>
+              <p class="skill-desc">Whether it's a partner, a founder, or a new hire — people leave conversations with me feeling like I actually gave a damn.</p>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <span class="skill-number">02</span>
+            <div class="skill-content">
+              <h3 class="skill-headline">Let me fix that for you.</h3>
+              <p class="skill-desc">Pattern recognition across a portfolio of 150 accounts means I catch problems early, flag them clearly, and come with a solution already half-built.</p>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <span class="skill-number">03</span>
+            <div class="skill-content">
+              <h3 class="skill-headline">Low vis? No problem.</h3>
+              <p class="skill-desc">Sales, ops, product, marketing — I've sat at all those tables and spoken all those languages. I'm most useful exactly where visibility is low and future tracks are fuzzy.</p>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <span class="skill-number">04</span>
+            <div class="skill-content">
+              <h3 class="skill-headline">I don't know how to code but the robots do!</h3>
+              <p class="skill-desc">I've built analytics tools for my team because the backlog wasn't moving fast enough. If something needs to exist, I'll figure out how to make it exist — thanks to my (somewhat) trustworthy friends at Anthropic.</p>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <span class="skill-number">05</span>
+            <div class="skill-content">
+              <h3 class="skill-headline">Since when did personality hires become a BAD thing?!</h3>
+              <p class="skill-desc">"Hard to quantify. Easy to notice when she's missing." — Kate's former boss.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         REVIEWS SECTION
+         ============================================ -->
+    <section class="content-section section-alt" id="reviews">
+      <div class="section-inner">
+        <h2 class="section-title">what they're saying</h2>
+        <p class="section-subtitle">Unsolicited opinions from people who've had to work with me.</p>
+
+        <div class="reviews-grid">
+
+          <div class="review-card">
+            <p class="review-quote">"I don't know how she does it, but somehow every partner thinks they're her favorite."</p>
+            <p class="review-attr">— a colleague</p>
+          </div>
+
+          <div class="review-card">
+            <p class="review-quote">"She will absolutely call you out, but you'll thank her for it later."</p>
+            <p class="review-attr">— a friend</p>
+          </div>
+
+          <div class="review-card">
+            <p class="review-quote">"Genuinely the only person I know who reads the terms and conditions."</p>
+            <p class="review-attr">— someone who clearly doesn't</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+    <section class="contact-section" id="contact">
+      <div class="section-inner">
+        <h2 class="contact-title">wanna be friends?</h2>
+        <a href="mailto:kate.eliz.simon@gmail.com" class="contact-email">kate.eliz.simon@gmail.com</a>
+
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/kateelizabethsimon/" target="_blank">linkedin</a>
+          <a href="https://www.instagram.com/kate.elizabeth.simon/" target="_blank">instagram</a>
+          <a href="https://beliapp.co/app/katesimon" target="_blank">beli</a>
+          <a href="https://www.pinterest.com/boots9499/" target="_blank">pinterest</a>
+          <span class="contact-soon">tiktok — coming soon, waiting for my big break</span>
+        </div>
+      </div>
+
+      <footer>
+        <p>Made with love, lots of tea, and a little help from my AI friends.</p>
+      </footer>
     </section>
 
     <script src="scripts/main.js"></script>
