@@ -1,46 +1,56 @@
 // main.js
-// Phase 2: scroll-linked hero fade + any future interactions
 
 // ============================================
-// SCROLL FADE — homepage name
+// SCROLL FADE — fades the hero-inner block
+// (name + tagline together) as user scrolls
 // ============================================
+const heroInner = document.querySelector('.hero-inner');
 
-// We only run this on the homepage, where .hero-name exists.
-// If the element doesn't exist (other pages), we skip quietly.
-const heroName = document.querySelector('.hero-name');
-
-if (heroName) {
-  // This function runs every time the user scrolls
+if (heroInner) {
   function handleScroll() {
-    // scrollY = how many pixels from the top the user has scrolled
     const scrollY = window.scrollY;
+    const fadeStart = 60;
+    const fadeEnd = 380;
 
-    // fadeStart: how many px scrolled before fade begins
-    // fadeEnd: how many px scrolled before name is fully transparent
-    const fadeStart = 50;
-    const fadeEnd = 400;
-
-    // Map scrollY to a 0-1 opacity value:
-    // - If scrollY <= fadeStart: opacity is 1 (fully solid)
-    // - If scrollY >= fadeEnd: opacity is 0 (fully transparent)
-    // - In between: smooth transition
     const opacity = 1 - Math.min(
       Math.max((scrollY - fadeStart) / (fadeEnd - fadeStart), 0),
       1
     );
 
-    // Apply the calculated opacity to the name element
-    heroName.style.opacity = opacity;
+    heroInner.style.opacity = opacity;
   }
 
-  // Tell the browser to call handleScroll every time the user scrolls
   window.addEventListener('scroll', handleScroll);
-
-  // Run once on load in case the page is loaded mid-scroll
   handleScroll();
 }
 
 // ============================================
-// FUTURE INTERACTIONS GO BELOW HERE
+// ACTIVE NAV LINK — highlights the nav link
+// for whichever section is currently in view
 // ============================================
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+function updateActiveNav() {
+  let currentSection = '';
+
+  sections.forEach(section => {
+    // If the top of the section has scrolled past 40% of the viewport
+    const sectionTop = section.offsetTop - window.innerHeight * 0.4;
+    if (window.scrollY >= sectionTop) {
+      currentSection = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${currentSection}`) {
+      link.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateActiveNav);
+updateActiveNav();
+
 console.log('main.js loaded');

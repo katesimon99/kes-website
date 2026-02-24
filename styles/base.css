@@ -1,25 +1,18 @@
 /* ============================================
-   BASE STYLES
-   Reset, global defaults, and font loading.
-   This file should NOT contain component styles —
-   just the foundation every page builds on.
+   BASE STYLES — kateelizsimon.com
    ============================================ */
 
-/* Load all three fonts from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
-/* --- RESET --- */
-/* Removes browser default spacing and makes sizing consistent */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* --- BASE --- */
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Makes anchor links glide instead of snap */
 }
 
 body {
@@ -27,23 +20,6 @@ body {
   background-color: var(--color-cream);
   color: var(--color-ink);
   line-height: 1.6;
-  min-height: 100vh;
-  /* Subtle warm paper texture using CSS — no image needed */
-  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-}
-
-/* --- TYPOGRAPHY DEFAULTS --- */
-h1, h2, h3 {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--color-ink);
-}
-
-p {
-  font-family: var(--font-sans);
-  font-weight: 300;
-  color: var(--color-ink-light);
 }
 
 a {
@@ -52,7 +28,9 @@ a {
   transition: color var(--transition);
 }
 
-/* --- NAVIGATION --- */
+/* ============================================
+   NAVIGATION
+   ============================================ */
 nav {
   position: fixed;
   top: 0;
@@ -63,8 +41,7 @@ nav {
   align-items: center;
   padding: var(--space-6) var(--space-8);
   z-index: 100;
-  /* Fades into the cream background below it */
-  background: linear-gradient(to bottom, var(--color-cream) 60%, transparent);
+  background: linear-gradient(to bottom, var(--color-cream) 70%, transparent);
 }
 
 .nav-logo {
@@ -74,9 +51,7 @@ nav {
   letter-spacing: 0.01em;
 }
 
-.nav-logo:hover {
-  color: var(--color-sage);
-}
+.nav-logo:hover { color: var(--color-sage); }
 
 .nav-links {
   display: flex;
@@ -84,7 +59,6 @@ nav {
 }
 
 .nav-links a {
-  font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-ink-light);
@@ -94,58 +68,16 @@ nav {
   border-bottom: 1px solid transparent;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
   color: var(--color-ink);
   border-bottom-color: var(--color-sage);
 }
 
-/* --- INNER PAGE LAYOUT --- */
-/* Used on work, reviews, elsewhere pages */
-.page-content {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 140px var(--space-8) var(--space-24);
-}
-
-.page-title {
-  font-family: var(--font-script);
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  color: var(--color-ink);
-  margin-bottom: var(--space-16);
-  letter-spacing: -0.01em;
-}
-
-/* --- HORSESHOE DIVIDER --- */
-/* A simple SVG horseshoe used as a section divider */
-.divider {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  margin: var(--space-12) 0;
-  color: var(--color-ink-faint);
-  font-size: var(--text-xs);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.divider::before,
-.divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background-color: var(--color-cream-dark);
-}
-
-/* --- REDUCED MOTION --- */
-/* Respects users who have asked for less animation in their OS settings */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}/* --- HERO (homepage only) --- */
+/* ============================================
+   HERO SECTION
+   ============================================ */
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -153,20 +85,34 @@ nav {
   min-height: 100vh;
   text-align: center;
   padding: var(--space-8);
-  padding-top: 30vh;        /* Pushes name down from the top */
-  padding-bottom: 100vh;    /* Lots of room to scroll into */
+  padding-top: 20vh;
+  padding-bottom: 80px;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* This is the element JS fades on scroll */
+  will-change: opacity;
 }
 
 .hero-name {
   font-family: var(--font-script);
   font-size: var(--text-hero);
-  font-weight: 400;         /* Pacifico only has one weight */
+  font-weight: 400;
   color: var(--color-ink);
-  letter-spacing: -0.02em;  /* Pulls letters slightly closer — more sweeping */
-  line-height: 0.95;        /* Tight line height makes lines overlap slightly */
+  letter-spacing: -0.02em;
+  line-height: 0.9;
   margin-bottom: var(--space-6);
-  /* Soft warm glow behind the name */
-  text-shadow: 0 0 120px rgba(124, 140, 110, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-line {
+  display: block;
+  line-height: 0.88;
 }
 
 .hero-tagline {
@@ -174,163 +120,172 @@ nav {
   font-style: italic;
   font-size: var(--text-lg);
   color: var(--color-ink-faint);
-  letter-spacing: 0.05em;
-}/* --- WORK PAGE --- */
-.job {
+  letter-spacing: 0.03em;
+  margin-top: var(--space-4);
+}
+
+/* Scroll arrow at bottom of hero */
+.scroll-arrow {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-ink-faint);
+  /* Gentle bobbing animation to invite scrolling */
+  animation: bob 2s ease-in-out infinite;
+}
+
+.scroll-arrow:hover { color: var(--color-sage); }
+
+@keyframes bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ============================================
+   CONTENT SECTIONS — shared styles
+   ============================================ */
+.content-section {
+  padding: var(--space-24) var(--space-8);
+}
+
+/* Alternating background for visual rhythm */
+.section-alt {
+  background-color: var(--color-cream-dark);
+}
+
+.section-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 400;
+  color: var(--color-ink);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.01em;
+}
+
+.section-subtitle {
+  font-size: var(--text-base);
+  color: var(--color-ink-faint);
+  font-style: italic;
   margin-bottom: var(--space-12);
-  padding-bottom: var(--space-12);
-  border-bottom: 1px solid var(--color-cream-dark);
 }
 
-.job:last-child {
-  border-bottom: none;
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.about-text p {
+  font-size: var(--text-lg);
+  color: var(--color-ink-light);
+  line-height: 1.8;
+  margin-bottom: var(--space-6);
+  font-weight: 300;
 }
 
-.job-header {
+.about-text p:last-child { margin-bottom: 0; }
+
+.inline-link {
+  color: var(--color-sage);
+  border-bottom: 1px solid var(--color-sage-light);
+  padding-bottom: 1px;
+}
+
+.inline-link:hover { color: var(--color-olive); }
+
+/* ============================================
+   CAREER SECTION
+   ============================================ */
+.career-grid {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-4);
-  align-items: baseline;
-  margin-bottom: var(--space-3);
+  flex-direction: column;
 }
 
-.job-title {
+.career-item {
+  display: flex;
+  gap: var(--space-8);
+  align-items: flex-start;
+  padding: var(--space-6) 0;
+}
+
+.career-logo {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-cream-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.career-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6px;
+}
+
+/* Shown when logo image fails to load */
+.logo-fallback {
+  display: none;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-ink-faint);
+  text-align: center;
+  padding: 4px;
+}
+
+.career-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+}
+
+.career-company {
   font-family: var(--font-serif);
   font-size: var(--text-lg);
+  font-weight: 600;
   color: var(--color-ink);
 }
 
-.job-company {
+.career-company:hover { color: var(--color-sage); }
+
+.career-title {
   font-size: var(--text-sm);
   color: var(--color-sage);
   font-weight: 500;
 }
 
-.job-years {
+.career-years {
   font-size: var(--text-xs);
   color: var(--color-ink-faint);
-  margin-left: auto;
-  letter-spacing: 0.05em;
-}
-
-.job-desc {
-  font-size: var(--text-base);
-  line-height: 1.75;
-}/* --- REVIEWS PAGE --- */
-.review {
-  margin-bottom: var(--space-12);
-}
-
-.quote {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: var(--text-xl);
-  color: var(--color-ink);
-  line-height: 1.6;
-  margin-bottom: var(--space-3);
-}
-
-.attribution {
-  font-size: var(--text-sm);
-  color: var(--color-ink-faint);
-  letter-spacing: 0.06em;
-}/* --- ELSEWHERE PAGE --- */
-.link-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.link-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-6) 0;
-  border-bottom: 1px solid var(--color-cream-dark);
-  color: var(--color-ink);
-  transition: color var(--transition), padding-left var(--transition);
-}
-
-.link-row:hover {
-  color: var(--color-sage);
-  padding-left: var(--space-2); /* Subtle nudge right on hover */
-}
-
-.link-label {
-  font-family: var(--font-serif);
-  font-size: var(--text-xl);
-  letter-spacing: 0.01em;
-}
-
-.link-arrow {
-  font-size: var(--text-lg);
-  color: var(--color-ink-faint);
-  transition: color var(--transition);
-}
-
-.link-row:hover .link-arrow {
-  color: var(--color-sage);
-}
-
-/* Disabled state for TikTok */
-.link-disabled {
-  cursor: default;
-  color: var(--color-ink-faint);
-}
-
-.link-disabled:hover {
-  color: var(--color-ink-faint);
-  padding-left: 0;
-}
-
-.link-soon {
-  font-size: var(--text-xs);
-  color: var(--color-ink-faint);
-  font-style: italic;
   letter-spacing: 0.04em;
 }
-```
 
----
-
-**Terminal checklist — run these in order:**
-```
-mkdir -p styles scripts assets/patterns assets/horses
-```
-Then manually create/replace all the files above with the code provided.
-```
-open index.html/* ============================================
-   HERO NAME — stacked layout
-   Each word on its own line, slightly overlapping
-   ============================================ */
-.hero-name {
-  display: flex;
-  flex-direction: column;  /* Stack the spans vertically */
-  align-items: center;
-  /* Transition smooths the JS opacity changes */
-  transition: opacity 0.05s linear;
-  /* will-change hints to the browser to optimize this element for animation */
-  will-change: opacity;
+.career-desc {
+  font-size: var(--text-base);
+  color: var(--color-ink-light);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-top: var(--space-2);
 }
 
-.name-line {
-  display: block;
-  /* Negative line height pulls lines closer — creates the overlap feel */
-  line-height: 0.85;
-}
-
-/* ============================================
-   HORSESHOE DIVIDER SVG
-   Inline SVG used as a decorative section divider
-   ============================================ */
+/* Horseshoe divider between career items */
 .horseshoe-divider {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: var(--space-4);
-  margin: var(--space-12) 0;
+  color: var(--color-ink-faint);
+  margin: var(--space-2) 0;
 }
 
-/* The lines either side of the horseshoe */
 .horseshoe-divider::before,
 .horseshoe-divider::after {
   content: '';
@@ -339,9 +294,178 @@ open index.html/* ============================================
   background-color: var(--color-cream-dark);
 }
 
-/* The SVG horseshoe itself */
-.horseshoe-divider svg {
-  flex-shrink: 0;
+/* ============================================
+   SKILLS SECTION
+   ============================================ */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.skill-item {
+  display: flex;
+  gap: var(--space-8);
+  align-items: flex-start;
+}
+
+.skill-number {
+  font-family: var(--font-serif);
+  font-size: var(--text-sm);
+  color: var(--color-blush);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  min-width: 28px;
+  padding-top: 4px;
+}
+
+.skill-headline {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--space-2);
+  line-height: 1.3;
+}
+
+.skill-desc {
+  font-size: var(--text-base);
+  color: var(--color-ink-light);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ============================================
+   REVIEWS SECTION
+   ============================================ */
+.reviews-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.review-card {
+  padding: var(--space-8);
+  background-color: var(--color-cream);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-cream-dark);
+}
+
+.review-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-xl);
+  color: var(--color-ink);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.review-attr {
+  font-size: var(--text-sm);
   color: var(--color-ink-faint);
-  /* Inherits color for the stroke */
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+.contact-section {
+  background-color: var(--color-olive);
+  color: var(--color-cream);
+  text-align: center;
+  padding: var(--space-24) var(--space-8) 0;
+}
+
+.contact-section .section-inner {
+  padding-bottom: var(--space-16);
+}
+
+.contact-title {
+  font-family: var(--font-script);
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 400;
+  color: var(--color-cream);
+  margin-bottom: var(--space-6);
+  letter-spacing: -0.01em;
+}
+
+.contact-email {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--color-cream);
+  border-bottom: 1px solid rgba(245, 240, 232, 0.4);
+  padding-bottom: 4px;
+  margin-bottom: var(--space-12);
+  transition: border-color var(--transition);
+}
+
+.contact-email:hover {
+  border-bottom-color: var(--color-cream);
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-6) var(--space-8);
+  margin-bottom: var(--space-12);
+}
+
+.contact-links a {
+  font-size: var(--text-sm);
+  color: rgba(245, 240, 232, 0.7);
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.contact-links a:hover {
+  color: var(--color-cream);
+  border-bottom-color: rgba(245, 240, 232, 0.5);
+}
+
+.contact-soon {
+  font-size: var(--text-sm);
+  color: rgba(245, 240, 232, 0.3);
+  letter-spacing: 0.08em;
+  font-style: italic;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  border-top: 1px solid rgba(245, 240, 232, 0.15);
+  padding: var(--space-6) 0;
+}
+
+footer p {
+  font-size: var(--text-xs);
+  color: rgba(245, 240, 232, 0.4);
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .scroll-arrow { animation: none; }
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+@media (max-width: 600px) {
+  .nav-links { gap: var(--space-4); }
+  .nav-links a { font-size: 0.75rem; }
+  .career-item { flex-direction: column; gap: var(--space-4); }
+  .skill-item { flex-direction: column; gap: var(--space-2); }
+  .contact-section { padding-top: var(--space-16); }
 }
