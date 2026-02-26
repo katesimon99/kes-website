@@ -2,7 +2,7 @@
    BASE STYLES — kateelizsimon.com
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,900&family=DM+Sans:wght@300;400;500&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -78,15 +78,36 @@ nav {
    ============================================ */
 .hero {
   position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   text-align: center;
-  padding: var(--space-8);
   padding-top: 20vh;
   padding-bottom: 80px;
+  background-color: var(--color-cream);
+  background-image: url('../images/plaid-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Cream wash over the plaid image so text reads clearly */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 240, 232, 0.65);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Lift content and scroll arrow above the overlay */
+.hero-inner,
+.scroll-arrow {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-inner {
@@ -98,16 +119,17 @@ nav {
 }
 
 .hero-name {
-  font-family: var(--font-script);
-  font-size: var(--text-hero);
-  font-weight: 400;
-  color: var(--color-ink);
-  letter-spacing: -0.02em;
-  line-height: 0.9;
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(2rem, 11vw, 13rem);
+  line-height: 0.88;
+  letter-spacing: -0.01em;
   margin-bottom: var(--space-6);
   display: flex;
   flex-direction: column;
   align-items: center;
+  transform: rotate(-2deg);
 }
 
 .name-line {
@@ -115,13 +137,24 @@ nav {
   line-height: 0.88;
 }
 
+.name-line + .name-line {
+  margin-top: -0.15em;
+}
+
+/* Alternating name colors: dark brown / dusty rose / dark brown */
+.hero-name .name-line:nth-child(1) { color: #2c1810; }
+.hero-name .name-line:nth-child(2) { color: #c9847a; }
+.hero-name .name-line:nth-child(3) { color: #2c1810; }
+
 .hero-tagline {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: var(--text-lg);
-  color: var(--color-ink-faint);
-  letter-spacing: 0.03em;
-  margin-top: var(--space-4);
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--color-ink);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: var(--space-8);
 }
 
 /* Scroll arrow at bottom of hero */
